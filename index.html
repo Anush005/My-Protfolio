@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANUSH'S PROTFOLIO</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Montserrat:wght@600;800&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="fade">
+ <div class="toggle-container">
+    <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+        🌑
+    </div>
+ </div>   
+
+<nav class="navbar">
+    <ul>
+        <li>
+            <a href="index.html">
+                Home
+            </a>
+        </li>
+        <li>
+            <a href="index.html">
+                About
+            </a>
+        </li>
+        <li>
+            <a href="index.html">
+                Projects
+            </a>
+        </li>
+        <li>
+            <a href="index.html">
+                Resume
+            </a>
+        </li>
+        <li>
+            <a href="index.html">
+                Certificate's
+            </a>
+        </li>
+        <li>
+            <a href="index.html">
+                Contact
+            </a>
+        </li>
+    </ul>
+</nav>
+<header class="hero">
+    <img src="images/anush.png" alt="Anush Pradhan" class="profile-pic">
+    <h1>Anush Pradhan</h1>
+    <p class="tagline">
+        innovative coder,photographer
+    </p>
+    <p>
+        i will change it later
+    </p>
+    <div class="cta-button">
+        <a href="index.html" class="btn">
+            Explore Projects
+        </a>
+        <a href="index.html" class="btn secondary">
+            Get In Touch 
+        </a>
+    </div>
+    <div class="stats">
+        <div><strong>10+</strong>Projects</div>
+        <div><strong>5+</strong>Certificates</div>
+        <div><strong>3+</strong>Domain</div>
+    </div>
+</header>
+<footer>&copy;2025 Anush Pradhan | All Rights Reserved</footer>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const isDark = localStorage.getItem("theme") === "dark";
+      if (isDark) {
+        document.body.classList.add("dark-mode");
+        document.getElementById("themeToggle").textContent = "🌕";
+      }
+      document.body.classList.add("visible");
+    });
+
+    function toggleTheme() {
+      const body = document.body;
+      const toggle = document.getElementById("themeToggle");
+      const isDark = body.classList.toggle("dark-mode");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      toggle.textContent = isDark ? "🌕" : "🌑";
+    }
+    document.querySelectorAll("a[href]").forEach(link => {
+      const url = new URL(link.href);
+      if (url.origin === location.origin && !link.href.includes("#")) {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.body.classList.remove("visible");
+          setTimeout(() => (window.location = link.href), 300);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
